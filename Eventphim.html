@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sự Kiện Bàn Phím</title>
+</head>
+<body onload="docReady()">
+<img id ="nobita" src="https://anhanime3d.com/wp-content/uploads/2025/08/nobita-cute-anime-dep.webp" style="position:absolute; left:0; top:0;"height="200" width="180"/>
+<Script>
+    function upArrowPressed() {
+        let elements = document.getElementById("nobita");
+        elements.style.top= parseInt(elements.style.top) -5 +"px"
+
+    }
+    function downArrowPressed() {
+        let elements = document.getElementById("nobita");
+        elements.style.top=parseInt(elements.style.top) + 5 +"px"
+
+    }
+    function leftArrowPressed() {
+        let elements = document.getElementById("nobita");
+        elements.style.left=parseInt(elements.style.left) - 5 +"px"
+
+    }
+    function rightArrowPressed() {
+        let elements = document.getElementById("nobita");
+        elements.style.left=parseInt(elements.style.left) + 5 +"px"
+    }
+    function MoveSelection(evt) {
+        switch(evt.keyCode) {
+            case 37:
+                leftArrowPressed()
+                break;
+            case 39:
+                rightArrowPressed()
+                break;
+            case 38:
+                upArrowPressed()
+                break;
+            case 40:
+                downArrowPressed()
+                break;
+        }
+    }
+    function docReady() {
+        window.addEventListener("keydown",MoveSelection)
+
+
+
+    }
+
+
+
+
+
+
+
+
+</Script>
+</body>
+</html>
