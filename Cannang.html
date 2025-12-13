@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính Chỉ Số Cân Nặng </title>
+</head>
+<body>
+    <h1> Calculate your body mass index</h1>
+     <lable>Nhập vào cân nặng (kg) :</lable>
+  <input type="number"  id="weight">
+<br>
+    <br>
+
+<lable>Nhập vào chiều cao (cm):</lable>
+<input type="number" step="0.01" id ="height">
+<br>
+    <br>
+
+<button onclick="tinhBMI()"> Kiểm Tra</button>
+<p id ="result"></p>
+<img id="imgresult" src="" width="150px" style="display:none">
+
+<script>
+    function tinhBMI() {
+        let weight = document.getElementById("weight").value
+        let height = document.getElementById("height").value
+        weight = parseFloat(weight)
+        height = parseFloat(height)
+        height = height / 100;
+        let bmi = weight /(height * height)
+        let message=""
+        let img = document.getElementById("imgresult")
+        if (bmi < 18.5) {
+            message="Bạn Gầy , gắng ăn nhiều vào nha !"
+            img.src="https://c.pxhere.com/photos/99/3f/animal_asia_buffalo_grass_green_lasso_meadow_poor-593100.jpg!d"
+        }
+        else if (bmi < 25) {
+            message="Tuyệt , bạn đang ở mức bình thường , giữ vững phong độ này nhé "
+            img.src="https://i.pinimg.com/originals/b0/06/7a/b0067ade5e832d2aefec8ee9bda50fdc.gif"
+
+        }
+        else if (bmi < 30) {
+            message=" Bạn hơi thừa cân rồi đó , cần luyện tập thêm nha"
+            img.src="https://inkythuatso.com/uploads/thumbnails/800/2022/05/anh-nen-meo-beo-u-cho-dien-thoai-110500413-18-09-02-01.jpg"
+
+        }
+        else  {
+            message="Bạn đang ở mức béo phì"
+            img.src="https://media.ngoisao.vn/news/2015/02/13/dong-vat-beo-phi-5.jpg"
+        }
+        document.getElementById("result").innerHTML = "Chỉ số BMI của bạn là : " + bmi.toFixed(2) +"." + message
+        img.style.display = "block"
+
+    }
+</script>
+
+
+</body>
+</html>
