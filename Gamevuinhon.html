@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Do You Love Me</title>
+
+    <style>
+        body {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        button {
+            width: 80px;
+            height: 40px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #no {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Do You Love Me?</h2>
+
+<button onclick="yesClick()">YES</button>
+<button id="no" onmouseover="noHover()">NO</button>
+
+<script>
+    function yesClick() {
+        alert("<3");
+    }
+
+    function noHover() {
+        let maxWidth = window.innerWidth - 100;
+        let maxHeight = window.innerHeight - 100;
+
+        let randomX = Math.random() * maxWidth;
+        let randomY = Math.random() * maxHeight;
+
+        let noButton = document.getElementById("no");
+        noButton.style.left = randomX + "px";
+        noButton.style.top = randomY + "px";
+    }
+</script>
+
+</body>
+</html>
