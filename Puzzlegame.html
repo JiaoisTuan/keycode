@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Puzzle Game</title>
+    <style>
+        img {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Puzzle Game</h2>
+
+<img id="img1" src="https://anonyviet.com/wp-content/uploads/2023/01/hinh-tet-ghep-mat-anonyviet.com_.jpg" onclick="clickAnh(1)">
+<img id="img2" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaI2-uhv7Hl4HVBRlrC1TUDPWcFxXRD3tRKw&s" onclick="clickAnh(2)">
+<img id="img3" src="https://demoda.vn/wp-content/uploads/2022/01/mau-anh-chibi-ghep-mat-cho-be.jpg" onclick="clickAnh(3)">
+
+<script>
+    // 1️⃣ TRẠNG THÁI CỦA MỖI ẢNH (CHỈ LÀ CON SỐ)
+    let trangThai1 = 1;
+    let trangThai2 = 2;
+    let trangThai3 = 3;
+
+    // 2️⃣ CLICK VÀO ẢNH
+    function clickAnh(soAnh) {
+
+        if (soAnh === 1) {
+            trangThai1++;
+            if (trangThai1 > 3) trangThai1 = 1;
+            document.getElementById("img1").src = "img" + trangThai1 + ".jpg";
+        }
+
+        if (soAnh === 2) {
+            trangThai2++;
+            if (trangThai2 > 3) trangThai2 = 1;
+            document.getElementById("img2").src = "img" + trangThai2 + ".jpg";
+        }
+
+        if (soAnh === 3) {
+            trangThai3++;
+            if (trangThai3 > 3) trangThai3 = 1;
+            document.getElementById("img3").src = "img" + trangThai3 + ".jpg";
+        }
+
+        // 3️⃣ SAU MỖI CLICK → KIỂM TRA THẮNG
+        if (trangThai1 === 1 && trangThai2 === 2 && trangThai3 === 3) {
+            alert("🎉 Bạn đã hoàn thành puzzle!");
+        }
+    }
+</script>
+
+</body>
+</html>
