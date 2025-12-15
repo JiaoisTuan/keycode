@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let phut = parseInt(prompt("Nhập số phút gọi"));
+    let tien;
+
+    if (phut <= 50) {
+        tien = phut * 600;
+    } else if (phut <= 150) {
+        tien = 50 * 600 + (phut - 50) * 400;
+    } else {
+        tien = 50 * 600 + 100 * 400 + (phut - 150) * 200;
+    }
+
+    alert("Tiền cước: " + tien + " đồng");
+</script>
+
+</body>
+</html>
