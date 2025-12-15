@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy Tính Basic</title>
+    <style>
+        button {
+            width: 40px;
+            height: 40px;
+            margin: 3px;
+        }
+        input {
+            width: 180px;
+            height: 30px;
+            font-size: 18px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+<input type="text" id="display" readonly>
+<br><br>
+
+<button onclick="nhapSo('1')">1</button>
+<button onclick="nhapSo('2')">2</button>
+<button onclick="nhapSo('3')">3</button>
+<button onclick="chonPhep('+')">+</button><br>
+
+<button onclick="nhapSo('4')">4</button>
+<button onclick="nhapSo('5')">5</button>
+<button onclick="nhapSo('6')">6</button>
+<button onclick="chonPhep('-')">-</button><br>
+
+<button onclick="nhapSo('7')">7</button>
+<button onclick="nhapSo('8')">8</button>
+<button onclick="nhapSo('9')">9</button>
+<button onclick="chonPhep('*')">*</button><br>
+
+<button onclick="xoa()">AC</button>
+<button onclick="nhapSo('0')">0</button>
+<button onclick="tinh()">=</button>
+<button onclick="chonPhep('/')">/</button>
+
+<script>
+    let soThuNhat = "";
+    let soThuHai = "";
+    let phepTinh = "";
+
+    function nhapSo(so) {
+        if (phepTinh === "") {
+            soThuNhat += so;
+            document.getElementById("display").value = soThuNhat;
+        } else {
+            soThuHai += so;
+            document.getElementById("display").value = soThuHai;
+        }
+    }
+
+    function chonPhep(phep) {
+        if (soThuNhat === "") return;
+        phepTinh = phep;
+    }
+
+    function tinh() {
+        if (soThuNhat === "" || soThuHai === "" || phepTinh === "") return;
+
+        let a = parseFloat(soThuNhat);
+        let b = parseFloat(soThuHai);
+        let ketQua = 0;
+
+        switch (phepTinh) {
+            case "+":
+                ketQua = a + b;
+                break;
+            case "-":
+                ketQua = a - b;
+                break;
+            case "*":
+                ketQua = a * b;
+                break;
+            case "/":
+                ketQua = a / b;
+                break;
+        }
+
+        document.getElementById("display").value = ketQua;
+
+        soThuNhat = ketQua.toString();
+        soThuHai = "";
+        phepTinh = "";
+    }
+
+    function xoa() {
+        soThuNhat = "";
+        soThuHai = "";
+        phepTinh = "";
+        document.getElementById("display").value = "";
+    }
+</script>
+
+</body>
+</html>
